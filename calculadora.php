@@ -1,33 +1,43 @@
-<?php
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora</title>
+</head>
+<body>
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $numero1 = $_POST["numero1"];
-    $numero2 = $_POST["numero2"];
-
-    $suma = $numero1 + $numero2;
-    echo "La suma es: " . $suma . "<br>";
-    
-    $resta = $numero1 - $numero2;
-    echo "La resta es: " . $resta . "<br>";
-
-    $multiplicacion = $numero1 * $numero2;
-    echo "La multiplicacion es: " . $multiplicacion . "<br>";
-
-    $redondeado = round($multiplicacion, 2);
-    echo "Redondeado: " . $redondeado . "<br>";
-}
-?>
+<h2>Calculadora</h2>
 
 <form method="post">
-    <label>Primer número:</label>
-    <input type="number" name="numero1" step="any">
 
+    Número 1:
+    <input type="number" step="any" name="num1" required>
     <br><br>
 
-    <label>Segundo número:</label>
-    <input type="number" name="numero2" step="any">
-
+    Número 2:
+    <input type="number" step="any" name="num2" required>
     <br><br>
 
-    <button type="submit">Calcular</button>
+    <input type="submit" name="calcular" value="Calcular">
+
 </form>
+
+<?php
+
+if (isset($_POST['calcular'])) {
+
+    $num1 = $_POST['num1'];
+    $num2 = $_POST['num2'];
+
+    echo "<h3>Resultados:</h3>";
+
+    echo "Suma: " . ($num1 + $num2) . "<br>";
+    echo "Resta: " . ($num1 - $num2) . "<br>";
+    echo "Multiplicación: " . ($num1 * $num2) . "<br>";
+
+    echo "Redondeo del primer número: " . round($num1) . "<br>";
+}
+
+?>
+
+</body>
+</html>
