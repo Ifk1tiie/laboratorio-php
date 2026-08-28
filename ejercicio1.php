@@ -2,25 +2,15 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Laboratorio #1 - Círculo</title>
+    <title>Área y Perímetro</title>
 
     <style>
-        /* Diseño general */
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
+            font-family: Arial;
         }
 
-        /* Campos de entrada */
         input {
-            padding: 8px;
-            margin: 5px;
-        }
-
-        /* Botón */
-        input[type="submit"] {
-            cursor: pointer;
+            padding: 5px;
         }
     </style>
 </head>
@@ -29,18 +19,11 @@
 
     <h1>Área y perímetro de un círculo</h1>
 
-    <!-- Formulario para ingresar el radio -->
-    <form method="GET" action="">
-        
-        <label for="radio">Introduzca el radio:</label><br>
+    <form method="GET">
 
-        <input 
-            type="number" 
-            step="any" 
-            name="radio" 
-            id="radio" 
-            required
-        >
+        <label>Introduzca el radio:</label>
+
+        <input type="number" name="radio">
 
         <br><br>
 
@@ -52,21 +35,21 @@
 
 <?php
 
-// Verifica si se ingresó un radio
-if (isset($_GET['radio'])) {
+// Verificar si se ingresó el radio
+if (isset($_GET["radio"])) {
 
-    // Guarda el radio
-    $r = floatval($_GET['radio']);
+    $radio = $_GET["radio"];
 
-    // Calcula el área
-    $area = M_PI * pow($r, 2);
+    // Calcular el área
+    $area = 3.14 * $radio * $radio;
 
-    // Calcula el perímetro
-    $perimetro = 2 * M_PI * $r;
+    // Calcular el perímetro
+    $perimetro = 2 * 3.14 * $radio;
 
-    // Muestra los resultados
-    echo "Área = " . round($area, 2) . "<br><br>";
-    echo "Perímetro = " . round($perimetro, 2);
+    // Mostrar resultados
+    echo "El área es: " . $area;
+    echo "<br>";
+    echo "El perímetro es: " . $perimetro;
 }
 
 ?>
