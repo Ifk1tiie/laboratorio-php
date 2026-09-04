@@ -5,10 +5,12 @@
 </head>
 <body>
 
+    <!-- Formulario para ingresar los datos -->
     <form method="post" action="">
+      
         Ingrese su nombre:<br>
         <input type="text" name="nombre" id="nombre"><br><br>
-
+    
         Ingrese su edad:<br>
         <input type="text" name="edad" id="edad"><br><br>
 
@@ -18,12 +20,15 @@
     <hr>
 
 <?php
+// Verifica que se hayan ingresado los datos
 if (isset($_POST['nombre']) && isset($_POST['edad'])) {
+
     $Nombre = $_POST['nombre'];
     $Edad = intval($_POST['edad']);
 
     echo "El nombre es: " . $Nombre . "<br>";
 
+    // Verifica si la persona es mayor de edad
     if ($Edad >= 18) {
         echo "Usted puede votar en las próximas elecciones 2028";
     } else {
