@@ -1,14 +1,20 @@
 <!DOCTYPE html>
-<html >
+<html>
 <head>
     <title>Document</title>
 </head>
 <body>
-    <h1> Ejemplo simple.</h1>
-    primer ejemplo de codigo php embebido dentro de 
-    codigo html.<br>
+
+    <!-- Título de la página -->
+    <h1>Ejemplo simple.</h1>
+
+    <!-- Texto de la cadena -->
+    Primer ejemplo de código PHP embebido dentro de
+    código HTML.<br>
+
     <?php
+    // Imprime un mensaje en pantalla
     echo "Hola, Mundo!";
     ?>
+
 </body>
-</html>
