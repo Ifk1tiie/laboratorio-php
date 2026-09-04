@@ -1,99 +1,86 @@
+```php
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
+
     <meta charset="UTF-8">
-    <title>Área y Perímetro</title>
+
+    <title>Conversión de pulgadas</title>
 
     <style>
         /* Estilo de la página */
         body {
             font-family: Arial;
             background-color: #f2f2f2;
-            text-align: center;
             padding: 30px;
         }
 
-        /* Caja principal */
-        .contenedor {
+        /* Estilo del formulario */
+        form {
             background-color: white;
-            width: 400px;
-            margin: auto;
-            padding: 25px;
+            padding: 20px;
+            width: 300px;
             border-radius: 10px;
         }
 
-        /* Título */
-        h1 {
-            color: #333;
-        }
-
-        /* Campo del radio */
-        input[type="number"] {
+        /* Estilo del campo */
+        input {
             padding: 8px;
-            width: 150px;
-            border: 1px solid #aaa;
-            border-radius: 5px;
         }
 
-        /* Botón */
-        input[type="submit"] {
-            padding: 8px 20px;
+        /* Estilo del botón */
+        button {
+            padding: 8px 15px;
             background-color: #333;
             color: white;
             border: none;
-            border-radius: 5px;
+            cursor: pointer;
         }
 
-        /* Resultado */
+        /* Espacio para el resultado */
         .resultado {
             margin-top: 20px;
-            padding: 10px;
-            background-color: #eee;
-            border-radius: 5px;
         }
     </style>
+
 </head>
 
 <body>
 
-    <div class="contenedor">
+    <h1>Conversión de pulgadas a centímetros</h1>
 
-        <h1>Área y perímetro de un círculo</h1>
+    <!-- Formulario para ingresar las pulgadas -->
+    <form method="post" action="">
 
-        <form method="GET">
+        <!-- Indica qué dato ingresar -->
+        <label>Ingrese las pulgadas:</label><br>
 
-            <label>Introduzca el radio:</label>
-            <br><br>
+        <!-- Campo para ingresar las pulgadas -->
+        <input type="number" name="pulgadas" step="any" required>
 
-            <input type="number" name="radio">
+        <br><br>
 
-            <br><br>
+        <!-- Botón para convertir -->
+        <button type="submit">Convertir</button>
 
-            <input type="submit" value="Calcular">
+    </form>
 
-        </form>
-
-        <hr>
+    <div class="resultado">
 
         <?php
 
-        // Verificar si se ingresó el radio
-        if (isset($_GET["radio"])) {
+        // Verifica si se envió el formulario
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-            $radio = $_GET["radio"];
+            // Obtiene las pulgadas ingresadas
+            $pulgadas = $_POST["pulgadas"];
 
-            // Calcular el área
-            $area = 3.14 * $radio * $radio;
+            // Convierte pulgadas a centímetros
+            $centimetros = $pulgadas * 2.54;
 
-            // Calcular el perímetro
-            $perimetro = 2 * 3.14 * $radio;
-
-            // Mostrar los resultados
-            echo "<div class='resultado'>";
-            echo "El área es: " . $area;
-            echo "<br>";
-            echo "El perímetro es: " . $perimetro;
-            echo "</div>";
+            // Muestra el resultado
+            echo "El resultado es: " . $centimetros . " centímetros.";
         }
 
         ?>
@@ -101,4 +88,7 @@
     </div>
 
 </body>
+
 </html>
+```
+
